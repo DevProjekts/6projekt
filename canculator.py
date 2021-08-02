@@ -1,7 +1,8 @@
 from tkinter import *
 
 root = Tk()
-
+#button_9 = Button(label_key,text='9',height=3,width=5,font=('Helvetica','12'))
+#button_9.grid(row=0,column=0)
 class Calculator:
     def click_button(self,numbers):
         global operator
@@ -12,6 +13,11 @@ class Calculator:
     def clear(self):
         self.entry.delete(0,END)
         self.operator =""
+
+    ''' def delete(self):
+        self.operator = str(self.entry.delete(len(self.entry.get())-1))
+    '''
+
 
     def evaluate(self):
         self.answer =eval(self.entry.get())
@@ -101,6 +107,11 @@ class Calculator:
         button_C = Button(label_C, text='C', font=('Helvetica', '16'), height=1, width=10,command=  self.clear,bg='black',fg='cyan')
         button_C.pack(side=LEFT)
 
+        '''label_del = Label(label_fkey, bg ='black')
+        label_del.grid(row=0,column=1,sticky=E)
+        button_del = Button(label_del, text='del', font=('Helvetica', '16'),bd=3, height=1, width=3,command=  self.delete)
+        button_del.pack()'''
+
         label_sub = Label(label_fkey, bg='black')
         label_sub.grid(row=1, column=0, sticky=W, pady=10)
         button_sub = Button(label_sub, text='-', font=('Helvetica', '16'), height=1, width=3,command= lambda: self.click_button('-'),bg='black',fg='cyan')
@@ -133,5 +144,5 @@ class Calculator:
         button_rbrace.pack()
 
 c = Calculator(root)
-root.title("DevProjekts's Calculator")
+root.title("DevProjekt's Calculator")
 root.mainloop()
